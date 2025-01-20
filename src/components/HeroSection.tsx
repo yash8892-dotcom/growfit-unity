@@ -1,5 +1,5 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 const HeroSection = () => {
@@ -12,27 +12,36 @@ const HeroSection = () => {
     '/lovable-uploads/65e472fd-bade-4ad4-a9b4-3ebf314e670b.png'
   ];
 
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 20000); // Change image every 20 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="relative h-screen w-full bg-black overflow-hidden">
       {/* Background Images */}
       <div className="absolute inset-0 opacity-30">
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 p-4 h-full">
-          {images.map((image, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.2 }}
-              className="relative h-full"
-            >
-              <img
-                src={image}
-                alt={`Gym interior ${index + 1}`}
-                className="w-full h-full object-cover rounded-lg"
-              />
-            </motion.div>
-          ))}
-        </div>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentImageIndex}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1 }}
+            className="w-full h-full"
+          >
+            <img
+              src={images[currentImageIndex]}
+              alt="Gym interior"
+              className="w-full h-full object-cover"
+            />
+          </motion.div>
+        </AnimatePresence>
       </div>
 
       {/* Geometric LED Lines */}
