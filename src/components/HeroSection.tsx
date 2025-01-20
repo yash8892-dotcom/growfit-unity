@@ -3,8 +3,38 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 const HeroSection = () => {
+  const images = [
+    '/lovable-uploads/23146edb-5853-44aa-9d8b-25087f2881bd.png',
+    '/lovable-uploads/3a40cbfc-e587-41cc-b05e-1cc5d22567b0.png',
+    '/lovable-uploads/495c05d1-0bf0-4f79-aa89-2a9a26fe01f9.png',
+    '/lovable-uploads/1400bccf-4c1b-468f-8245-d272336e89a7.png',
+    '/lovable-uploads/1d791547-bc26-47de-ba23-a8fde20a49d9.png',
+    '/lovable-uploads/65e472fd-bade-4ad4-a9b4-3ebf314e670b.png'
+  ];
+
   return (
     <div className="relative h-screen w-full bg-black overflow-hidden">
+      {/* Background Images */}
+      <div className="absolute inset-0 opacity-30">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 p-4 h-full">
+          {images.map((image, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: index * 0.2 }}
+              className="relative h-full"
+            >
+              <img
+                src={image}
+                alt={`Gym interior ${index + 1}`}
+                className="w-full h-full object-cover rounded-lg"
+              />
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
       {/* Geometric LED Lines */}
       <div className="absolute inset-0">
         <motion.div 
@@ -28,7 +58,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="backdrop-blur-sm bg-black/30 p-12 rounded-lg border border-white/10"
+            className="backdrop-blur-lg bg-black/50 p-12 rounded-lg border border-white/10"
           >
             <h1 className="text-5xl font-light text-white mb-6">
               GROW UP FITNESS
