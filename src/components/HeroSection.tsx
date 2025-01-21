@@ -17,13 +17,13 @@ const HeroSection = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 20000); // Change image every 20 seconds
+    }, 20000);
 
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className="relative h-screen w-full bg-black overflow-hidden">
+    <div className="relative min-h-screen w-full bg-black overflow-hidden">
       {/* Background Images */}
       <div className="absolute inset-0 opacity-30">
         <AnimatePresence mode="wait">
@@ -46,10 +46,10 @@ const HeroSection = () => {
 
       {/* Wooden Frame Border */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-x-0 top-0 h-4 bg-gradient-to-b from-[#8B4513]/40 via-[#DEB887]/20 to-transparent"></div>
-        <div className="absolute inset-x-0 bottom-0 h-4 bg-gradient-to-t from-[#8B4513]/40 via-[#DEB887]/20 to-transparent"></div>
-        <div className="absolute inset-y-0 left-0 w-4 bg-gradient-to-r from-[#8B4513]/40 via-[#DEB887]/20 to-transparent"></div>
-        <div className="absolute inset-y-0 right-0 w-4 bg-gradient-to-l from-[#8B4513]/40 via-[#DEB887]/20 to-transparent"></div>
+        <div className="absolute inset-x-0 top-0 h-2 md:h-4 bg-gradient-to-b from-[#8B4513]/40 via-[#DEB887]/20 to-transparent"></div>
+        <div className="absolute inset-x-0 bottom-0 h-2 md:h-4 bg-gradient-to-t from-[#8B4513]/40 via-[#DEB887]/20 to-transparent"></div>
+        <div className="absolute inset-y-0 left-0 w-2 md:w-4 bg-gradient-to-r from-[#8B4513]/40 via-[#DEB887]/20 to-transparent"></div>
+        <div className="absolute inset-y-0 right-0 w-2 md:w-4 bg-gradient-to-l from-[#8B4513]/40 via-[#DEB887]/20 to-transparent"></div>
       </div>
 
       {/* Geometric LED Lines with Wood Accent */}
@@ -58,29 +58,29 @@ const HeroSection = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.5 }}
-          className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#DEB887]/20 to-transparent"
+          className="absolute top-0 left-0 w-full h-0.5 md:h-1 bg-gradient-to-r from-transparent via-[#DEB887]/20 to-transparent"
         ></motion.div>
         <motion.div 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.5, delay: 0.3 }}
-          className="absolute top-10 right-0 w-1/2 h-1 bg-gradient-to-l from-transparent via-[#DEB887]/20 to-transparent"
+          className="absolute top-6 md:top-10 right-0 w-1/2 h-0.5 md:h-1 bg-gradient-to-l from-transparent via-[#DEB887]/20 to-transparent"
         ></motion.div>
       </div>
       
       {/* Glass Panel Content */}
-      <div className="relative z-10 flex items-center justify-center h-full">
-        <div className="w-4/5 max-w-6xl">
+      <div className="relative z-10 flex items-center justify-center h-full px-4 py-8 md:p-0">
+        <div className="w-full md:w-4/5 max-w-6xl">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="backdrop-blur-lg bg-black/50 p-12 rounded-lg border border-[#DEB887]/10 shadow-[0_0_15px_rgba(222,184,135,0.1)]"
+            className="backdrop-blur-lg bg-black/50 p-6 md:p-12 rounded-lg border border-[#DEB887]/10 shadow-[0_0_15px_rgba(222,184,135,0.1)]"
           >
-            <h1 className="text-5xl font-light text-white mb-6">
+            <h1 className="text-3xl md:text-5xl font-light text-white mb-4 md:mb-6">
               GROW UP FITNESS
             </h1>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 mt-6 md:mt-12">
               {[
                 { name: 'Sportzila', path: '/sportzila', desc: 'Premium nutrition supplements' },
                 { name: 'Fitzilla', path: '/fitzilla', desc: 'Gym management software' },
@@ -92,10 +92,10 @@ const HeroSection = () => {
                     className="group relative overflow-hidden cursor-pointer"
                   >
                     <div className="absolute inset-0 bg-gradient-to-br from-black/80 to-transparent group-hover:from-black/60 transition-all duration-300"></div>
-                    <div className="relative p-6 border border-[#DEB887]/5 hover:border-[#DEB887]/20 transition-all duration-300">
-                      <h3 className="text-xl text-white mb-2">{brand.name}</h3>
-                      <p className="text-sm text-white/70 mb-4">{brand.desc}</p>
-                      <div className="h-1 w-12 bg-gradient-to-r from-[#DEB887]/60 to-transparent"></div>
+                    <div className="relative p-4 md:p-6 border border-[#DEB887]/5 hover:border-[#DEB887]/20 transition-all duration-300">
+                      <h3 className="text-lg md:text-xl text-white mb-2">{brand.name}</h3>
+                      <p className="text-xs md:text-sm text-white/70 mb-3 md:mb-4">{brand.desc}</p>
+                      <div className="h-0.5 md:h-1 w-8 md:w-12 bg-gradient-to-r from-[#DEB887]/60 to-transparent"></div>
                     </div>
                   </motion.div>
                 </Link>
@@ -110,7 +110,7 @@ const HeroSection = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1.5, delay: 0.6 }}
-        className="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-[#DEB887]/10 to-transparent"
+        className="absolute bottom-0 left-0 w-full h-8 md:h-16 bg-gradient-to-t from-[#DEB887]/10 to-transparent"
       ></motion.div>
     </div>
   );
