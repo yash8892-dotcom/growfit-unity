@@ -23,7 +23,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <div className="relative min-h-screen w-full bg-black overflow-hidden">
+    <div className="relative min-h-screen w-full bg-black overflow-hidden pt-16"> {/* Added pt-16 for navigation spacing */}
       {/* Background Images */}
       <div className="absolute inset-0 opacity-30">
         <AnimatePresence mode="wait">
@@ -78,7 +78,7 @@ const HeroSection = () => {
             className="backdrop-blur-lg bg-black/50 p-6 md:p-12 rounded-lg border border-[#DEB887]/10 shadow-[0_0_15px_rgba(222,184,135,0.1)]"
           >
             <h1 className="text-3xl md:text-5xl font-light text-white mb-4 md:mb-6">
-              GROW UP FITNESS
+              URBAN IRON
             </h1>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 mt-6 md:mt-12">
               {[
