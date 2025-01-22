@@ -75,6 +75,15 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* Blank Section for Future Content */}
+      <section className="relative py-20 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#222222] via-[#1a1a1a] to-[#222222] opacity-95"></div>
+        <div className="absolute inset-0 backdrop-blur-[80px]"></div>
+        <div className="relative max-w-7xl mx-auto px-4">
+          {/* Content will be added later */}
+        </div>
+      </section>
     </div>
   );
 };
