@@ -11,10 +11,10 @@ const Index = () => {
       {/* Testimonials Section with Glass Morphism */}
       <section className="relative py-20 overflow-hidden">
         {/* Gradient Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#1a1f2c] via-[#2d1f3d] to-[#1a1f2c] opacity-90"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-[#222222] via-[#1a1a1a] to-[#222222] opacity-95"></div>
         
         {/* Glass Overlay */}
-        <div className="absolute inset-0 backdrop-blur-[100px]"></div>
+        <div className="absolute inset-0 backdrop-blur-[80px]"></div>
         
         {/* Content */}
         <div className="relative max-w-7xl mx-auto px-4">
@@ -51,16 +51,17 @@ const Index = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.2 }}
                 viewport={{ once: true }}
+                whileHover={{ scale: 1.02 }}
                 className="relative group"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-[#ffffff10] to-[#ffffff05] rounded-xl transition-all duration-300 group-hover:scale-[1.02]"></div>
-                <div className="relative backdrop-blur-sm bg-black/20 p-6 rounded-xl border border-white/10 hover:border-white/20 transition-all duration-300">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#333333] to-[#222222] rounded-xl transition-all duration-300"></div>
+                <div className="relative backdrop-blur-sm bg-[#222222]/40 p-6 rounded-xl border border-white/5 hover:border-white/10 transition-all duration-300">
                   <div className="h-1 w-12 bg-gradient-to-r from-primary to-transparent mb-4"></div>
                   <p className="text-lg mb-4 text-gray-200">
                     "{testimonial.text}"
                   </p>
                   <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary/30 to-primary/10 flex items-center justify-center">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#333333] to-[#222222] flex items-center justify-center">
                       <span className="text-xl text-primary">{testimonial.author[0]}</span>
                     </div>
                     <div>
