@@ -23,7 +23,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <div className="relative min-h-screen w-full bg-black overflow-hidden pt-16"> {/* Added pt-16 for navigation spacing */}
+    <div className="relative min-h-[calc(100vh-8rem)] w-full bg-black overflow-hidden pt-32"> {/* Adjusted height and padding */}
       {/* Background Images */}
       <div className="absolute inset-0 opacity-30">
         <AnimatePresence mode="wait">
