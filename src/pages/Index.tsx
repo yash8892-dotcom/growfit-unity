@@ -1,5 +1,6 @@
 import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/HeroSection";
+import ChatBot from "@/components/ChatBot";
 import { motion } from "framer-motion";
 
 const Index = () => {
@@ -84,6 +85,8 @@ const Index = () => {
           {/* Content will be added later */}
         </div>
       </section>
+
+      <ChatBot />
     </div>
   );
 };
